@@ -4,19 +4,6 @@ import { Carousel } from "react-bootstrap";
 
 const CricketSlides = () => {
   return (
-    // [IGNORE, attempted but didn't work, will ask why]
-    // <div id="myCarousel" class="carousel container slide">
-    //   <div class="carousel-inner">
-    //     <div class="active item one"></div>
-    //     <div class="item two"></div>
-    //     <div class="item three"></div>
-    //   </div>
-    //   <script type="text/javascript">
-    //     $(document).ready(function(){" "}
-    //     {`$(".carousel").carousel({ interval: 1000 })`});
-    //   </script>
-    // </div>
-    // [THIS ONE WORKS BUT NOT AS BACKGROUND]
     <div class="carousel">
       <Carousel fade>
         <Carousel.Item interval={3000}>
