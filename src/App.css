@@ -58,7 +58,7 @@ h2{
 a, p{
   text-decoration: none;
   color: #808080;
-  letter-spacing: 6px;
+  letter-spacing: 4px;
   transition: all 0.5s ease-in-out;
   width: auto;
   float: left;
@@ -75,9 +75,4 @@ a:hover{
 .emojiButton{
   padding-bottom: 500px;
 }
-
-/* Adjust carousel height/width */
-/* .carousel {
-  height: 300px;
-} */
 
