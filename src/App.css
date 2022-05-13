@@ -72,7 +72,14 @@ a:hover{
   transition: all 0.5s ease-in-out;
 }
 
-.emojiButton{
-  padding-bottom: 500px;
+.emojiButton {
+  padding-bottom: 40px;
+}
+
+.meetCricket {
+  color: darkblue;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  font-size: 75px;
 }
 

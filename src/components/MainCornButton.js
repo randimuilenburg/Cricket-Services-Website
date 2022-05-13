@@ -137,7 +137,7 @@ const CornEmojis = () => {
     <Row>
       <Col></Col>
       <Col></Col>
-      <Col xs lg="4">
+      <Col xs lg="5">
         <Button
           className="emojiButton"
           variant="outline-info"
