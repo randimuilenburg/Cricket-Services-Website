@@ -1,25 +1,35 @@
 import "./App.css";
-// import React from "react";
 import Navigation from "./components/Navbar";
-import MainHeader from "./components/MainHeader";
-import MainCarousel from "./components/MainCarousel";
-import MainCornButton from "./components/MainCornButton";
-import About from "./components/About";
-// import CarouselToggle from "./components/CarouselToggle";
+import Viewing from "./components/Viewing";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
-import { Component } from "react";
+import React, { Component } from "react";
 
 function App() {
   return (
-    <div className="container">
-      <div id="animate" />
+    <React.Fragment>
       <Navigation />
-      {/* <About /> */}
-      <MainHeader />
-      <MainCornButton />
-      <MainCarousel />
-    </div>
+      <Viewing />
+    </React.Fragment>
   );
 }
+
+// function App() {
+//   return (
+//     <BrowserRouter>
+//       <div className="container">
+//         <div id="animate" />
+//         <Routes>
+//           <Viewing />
+//           <Navigation />
+//           {/* <Main /> */}
+//           {/* <About /> */}
+//           {/* <MainHeader /> */}
+//           {/* <MainCornButton /> */}
+//           {/* <MainCarousel /> */}
+//         </Routes>
+//       </div>
+//     </BrowserRouter>
+//   );
+// }
 
 export default App;
