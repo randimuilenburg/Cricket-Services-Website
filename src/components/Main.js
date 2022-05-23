@@ -4,18 +4,37 @@ import "../App.css";
 import { render } from "@testing-library/react";
 
 const mainPage = () => {
-  return mainHeader(), cornEmojis(), cricketSlides();
+  return (
+    <div>
+      <Row>
+        <Col></Col>
+        <Col></Col>
+        <Col xs lg="8">
+          {mainHeader()}
+        </Col>
+      </Row>
+      <Row>
+        <Col></Col>
+        <Col></Col>
+        <Col xs lg="4">
+          <div id="animate" />
+          {cornEmojis()}
+        </Col>
+        <Col></Col>
+      </Row>
+      <Row>
+        <Col></Col>
+        <Col></Col>
+        <Col xs lg="11">
+          {cricketSlides()}
+        </Col>
+      </Row>
+    </div>
+  );
 };
 
 const mainHeader = () => {
-  <Row>
-    <Col></Col>
-    <Col></Col>
-    <Col xs lg="8">
-      <h1 className="meetCricket">MEET CRICKET</h1>
-    </Col>
-    <Col></Col>
-  </Row>;
+  return <h1 className="meetCricket">MEET CRICKET</h1>;
 };
 
 const onClick = () => {
@@ -148,21 +167,16 @@ const onClick = () => {
 </div>;
 
 const cornEmojis = () => {
-  <Row>
-    <Col></Col>
-    <Col></Col>
-    <Col xs lg="5">
-      <Button
-        className="emojiButton"
-        variant="outline-info"
-        size="sm"
-        onClick={onClick}
-      >
-        his FAVORITE things
-      </Button>
-    </Col>
-    <Col></Col>
-  </Row>;
+  return (
+    <Button
+      className="emojiButton"
+      variant="outline-info"
+      size="sm"
+      onClick={onClick}
+    >
+      his FAVORITE things
+    </Button>
+  );
 };
 
 const cricketSlides = () => {

@@ -1,8 +1,7 @@
 import { render } from "@testing-library/react";
 import React, { component } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-// import About from "./components/About";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   render();
