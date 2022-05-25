@@ -11,19 +11,13 @@ const AboutCricket = () => {
           There are some things you should know about Cricket.
         </p>
       </Row>
-      {/* <Row> */}
-      {/* <Col></Col>
-      <Col></Col>
-      <Col xs lg="4"></Col> */}
       <img
         className="aboutCricketImages"
         src={require("../photos/CricketAbout1.jpg")}
         alt="Baby Cricket"
-        // onMouseEnter={() => {
-        //   showHearts;
-        // }}
+        // onMouseEnter={() => showHearts}
+        // onMouseLeave={() => null}
       />
-      {/* </Row> */}
       <Row>
         <Col></Col>
         <Col></Col>
@@ -115,7 +109,7 @@ const AboutCricket = () => {
 };
 
 // const showHearts = (onMouseEnter) => {
-//   console.log("petting the dog");
+//   console.log("pet this dog");
 // };
 
 export default AboutCricket;
