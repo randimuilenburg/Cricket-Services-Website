@@ -24,8 +24,8 @@ const AboutCricket = () => {
         <Col xs lg="2"></Col>
         <p className="aboutParagraphs">
           Cricket was born on a reservation in Texas where he, his mom, and his
-          siblings were feral. His family was rescued by Lifeline Puppy Rescue
-          and adopted out. That's where we come in!
+          siblings were semi-feral. His family was rescued by Lifeline Puppy
+          Rescue and adopted out. That's when we came into his life!
         </p>
       </Row>
       <img
@@ -39,9 +39,8 @@ const AboutCricket = () => {
         <Col xs lg="2"></Col>
         <p className="aboutParagraphs">
           After a DNA test, we learned that he's part Carolina Dog and part
-          Akita. Because of his early puppyhood days before he felt safe, he can
-          be terrified of people and doesn't handle strangers well. He LOVES
-          meeting new dog friends, though!
+          Akita. He LOVES meeting other dogs and making new friends. It's his
+          favorite thing in the world, maybe even better than french fries.
         </p>
       </Row>
       <img

@@ -1,3 +1,5 @@
+/* import 'react-calendar/dist/Calendar.css'; */
+
 /* MAIN page, NAVBAR, EMOJIS  */
 body{
   margin: 0;
@@ -83,6 +85,12 @@ a:hover{
   font-size: 75px;
 }
 
+.carouselCricket {
+  padding-top: 20px;
+  /* width: 700px;
+  height: 700px; */
+}
+
 /* ABOUT page */
 
 .aboutParagraphs {
@@ -101,4 +109,37 @@ a:hover{
 }
 
 /* BOOKING page */
+.bookingHead {
+  padding-top: 20px;
+}
+
+.bookingPara {
+  color: black;
+  letter-spacing: 1;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.bookingCricketImage {
+  width: 400px;
+  padding-top: 40px;
+}
+
+.react-calendar { 
+ width: 400px;
+ max-width: 100%;
+ background-color: #fff;
+ color: #222;
+ border-radius: 8px;
+ box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+ font-family: Arial, Helvetica, sans-serif;
+ line-height: 1.125em;
+}
+.react-calendar__navigation button {
+ color: #6f48eb;
+ min-width: 44px;
+ background: none;
+ font-size: 16px;
+ margin-top: 8px;
+}
 

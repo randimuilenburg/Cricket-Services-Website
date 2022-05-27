@@ -1,7 +1,7 @@
-import React, { component } from "react";
+// import React, { component } from "react";
 import { Carousel, Button, Row, Col } from "react-bootstrap";
 import "../App.css";
-import { render } from "@testing-library/react";
+// import { render } from "@testing-library/react";
 
 const mainPage = () => {
   return (
@@ -33,10 +33,14 @@ const mainPage = () => {
   );
 };
 
+// Helper Functions:
+
+// Main Header
 const mainHeader = () => {
   return <h1 className="meetCricket">MEET CRICKET</h1>;
 };
 
+// Emoji Button
 const onClick = () => {
   var container = document.getElementById("animate");
   var emoji = [
@@ -179,6 +183,7 @@ const cornEmojis = () => {
   );
 };
 
+// Cricket Picture Carousel
 const cricketSlides = () => {
   return (
     <div class="carousel">
