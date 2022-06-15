@@ -121,8 +121,9 @@ a:hover{
 }
 
 .bookingCricketImage {
-  width: 400px;
-  padding-top: 40px;
+  width: 350px;
+  margin-top: 30px;
+  margin-bottom: 25px;
 }
 
 .react-calendar { 
@@ -143,3 +144,12 @@ a:hover{
  margin-top: 8px;
 }
 
+.bookingKey {
+  color: grey;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.bookingForm {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}

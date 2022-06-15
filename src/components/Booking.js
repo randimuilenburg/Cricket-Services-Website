@@ -1,8 +1,9 @@
-import { Button, Row, Col } from "react-bootstrap";
+import { Button, Row, Col, Form } from "react-bootstrap";
 import Calendar from "react-calendar";
 import { useState } from "react";
 import "../App.css";
 import "react-calendar/dist/Calendar.css";
+
 // import { render } from "@testing-library/react";
 
 const BookingPage = () => {
@@ -44,6 +45,22 @@ const BookingPage = () => {
       </Row>
       <Row>
         <Col></Col>
+        <Col></Col>
+        <Col xs lg="6">
+          {AvailabilityKey()}
+        </Col>
+        <Col></Col>
+      </Row>
+      <Row>
+        <Col></Col>
+        <Col></Col>
+        <Col xs lg="8">
+          {RequestForm()}
+        </Col>
+        <Col></Col>
+      </Row>
+      <Row>
+        <Col></Col>
         <Col xs lg="8">
           {BusinessCricket()}
         </Col>
@@ -77,7 +94,7 @@ const BookingParagraph = () => {
 
 // Calendar Header
 const CalendarHeader = () => {
-  return <h1 className="calendarHead">Book Appointment</h1>;
+  return <h1 className="calendarHead">Cricket's Availability</h1>;
 };
 
 // Calendar
@@ -86,13 +103,80 @@ const ApptCalendar = () => {
 
   return (
     <div className="app">
-      {/* <h1 className="text-center">Book an Appointment</h1> */}
       <div className="calendar-container">
-        <Calendar onChange={setDate} value={date} />
+        <Calendar onChange={setDate} value={date} selectRange={true} />
       </div>
-      <p className="text-center">
-        <span className="bold">Selected Date:</span> {date.toDateString()}
-      </p>
+      {date.length > 0 ? (
+        <p className="text-center">
+          <span className="bold">Start:</span> {date[0].toDateString()}
+          &nbsp;|&nbsp;
+          <span className="bold">End:</span> {date[1].toDateString()}
+        </p>
+      ) : (
+        <p className="text-center">
+          <span className="bold">Today's date:</span> {date.toDateString()}
+        </p>
+      )}
+    </div>
+  );
+};
+
+// Pricing Calendar Key
+const AvailabilityKey = () => {
+  return (
+    <div className="bookingKey">
+      <h6>Pricing</h6>
+      <h6>Black: $30 per hour</h6>
+      <h6>Red: $50 per hour</h6>
+      <h6>Discounted rates for multi-day events are available.</h6>
+    </div>
+  );
+};
+
+// Request Booking Form
+const RequestForm = () => {
+  return (
+    <div className="bookingForm">
+      <Form>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Your email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter your email address" />
+          <Form.Text className="text-muted">
+            Your email will never be shared with anyone else. We will only use
+            it to respond to you.
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicDate">
+          <Form.Label>Select start date</Form.Label>
+          <Form.Control type="date" />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicTime">
+          <Form.Label>Enter start time</Form.Label>
+          <Form.Control type="time" />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicDate">
+          <Form.Label>Select end date</Form.Label>
+          <Form.Control type="date" />
+        </Form.Group>
+        <h6>
+          Please select the same date as your start date if it is a single day
+          event.
+        </h6>
+        <Form.Group className="mb-3" controlId="formBasicTime">
+          <Form.Label>Enter end time</Form.Label>
+          <Form.Control type="time" />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Check
+            type="checkbox"
+            label="I acknowledge that Cricket is a very busy boy and may not be available for my preferred date(s)."
+          />
+        </Form.Group>
+        <Button variant="dark" type="submit">
+          Submit
+        </Button>
+      </Form>
     </div>
   );
 };
