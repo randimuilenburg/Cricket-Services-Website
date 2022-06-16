@@ -173,12 +173,17 @@ const RequestForm = () => {
             label="I acknowledge that Cricket is a very busy boy and may not be available for my preferred date(s)."
           />
         </Form.Group>
-        <Button variant="dark" type="submit">
+        <Button variant="dark" type="submit" onClick={onClick}>
           Submit
         </Button>
       </Form>
     </div>
   );
+};
+
+// Submit Button Alert
+const onClick = () => {
+  return alert("Thank you! We will respond within 48 hours.");
 };
 
 // Cricket Image
