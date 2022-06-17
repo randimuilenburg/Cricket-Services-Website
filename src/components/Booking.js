@@ -1,19 +1,19 @@
 import { Button, Row, Col, Form } from "react-bootstrap";
-import Calendar from "react-calendar";
-import { useState } from "react";
+import React, { useState } from "react";
+import BookingCricketImage from "./BookingCricketImage";
+import BookingCalendar from "./BookingCalendar";
+import BookingRequestForm from "./BookingRequestForm";
 import "../App.css";
 import "react-calendar/dist/Calendar.css";
 
-// import { render } from "@testing-library/react";
-
-const BookingPage = () => {
+const bookingPage = () => {
   return (
     <div>
       <Row>
         <Col></Col>
         <Col></Col>
         <Col xs lg="9">
-          {BookingHeader()}
+          {bookingHeader()}
         </Col>
         <Col></Col>
       </Row>
@@ -21,7 +21,7 @@ const BookingPage = () => {
         <Col></Col>
         <Col></Col>
         <Col xs lg="5">
-          {BookingParagraph()}
+          {bookingParagraph()}
         </Col>
         <Col></Col>
         <Col></Col>
@@ -30,7 +30,7 @@ const BookingPage = () => {
         <Col></Col>
         <Col></Col>
         <Col xs lg="6">
-          {CalendarHeader()}
+          {calendarHeader()}
         </Col>
         <Col></Col>
       </Row>
@@ -39,7 +39,7 @@ const BookingPage = () => {
         <Col></Col>
         <Col xs lg="6">
           <div id="animate" />
-          {ApptCalendar()}
+          {BookingCalendar()}
         </Col>
         <Col></Col>
       </Row>
@@ -47,7 +47,7 @@ const BookingPage = () => {
         <Col></Col>
         <Col></Col>
         <Col xs lg="6">
-          {AvailabilityKey()}
+          {availabilityKey()}
         </Col>
         <Col></Col>
       </Row>
@@ -55,14 +55,14 @@ const BookingPage = () => {
         <Col></Col>
         <Col></Col>
         <Col xs lg="8">
-          {RequestForm()}
+          {BookingRequestForm()}
         </Col>
         <Col></Col>
       </Row>
       <Row>
         <Col></Col>
         <Col xs lg="8">
-          {BusinessCricket()}
+          {BookingCricketImage()}
         </Col>
       </Row>
     </div>
@@ -72,7 +72,7 @@ const BookingPage = () => {
 // Helper Functions:
 
 // Booking Header
-const BookingHeader = () => {
+const bookingHeader = () => {
   return (
     <div>
       <h1 className="bookingHead">Want to hire Cricket for your next event?</h1>
@@ -81,7 +81,7 @@ const BookingHeader = () => {
 };
 
 // Booking Paragraph
-const BookingParagraph = () => {
+const bookingParagraph = () => {
   return (
     <p className="bookingPara">
       He's the perfect addition for your next birthday party, graduation, or
@@ -93,36 +93,15 @@ const BookingParagraph = () => {
 };
 
 // Calendar Header
-const CalendarHeader = () => {
+const calendarHeader = () => {
   return <h1 className="calendarHead">Cricket's Availability</h1>;
 };
 
-// Calendar
-const ApptCalendar = () => {
-  const [date, setDate] = useState(new Date());
-
-  return (
-    <div className="app">
-      <div className="calendar-container">
-        <Calendar onChange={setDate} value={date} selectRange={true} />
-      </div>
-      {date.length > 0 ? (
-        <p className="text-center">
-          <span className="bold">Start:</span> {date[0].toDateString()}
-          &nbsp;|&nbsp;
-          <span className="bold">End:</span> {date[1].toDateString()}
-        </p>
-      ) : (
-        <p className="text-center">
-          <span className="bold">Today's date:</span> {date.toDateString()}
-        </p>
-      )}
-    </div>
-  );
-};
+// Calendar:
+// BookingCalendar Component
 
 // Pricing Calendar Key
-const AvailabilityKey = () => {
+const availabilityKey = () => {
   return (
     <div className="bookingKey">
       <h6>Pricing</h6>
@@ -133,70 +112,10 @@ const AvailabilityKey = () => {
   );
 };
 
-// Request Booking Form
-const RequestForm = () => {
-  return (
-    <div className="bookingForm">
-      <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Your email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter your email address" />
-          <Form.Text className="text-muted">
-            Your email will never be shared with anyone else. We will only use
-            it to respond to you.
-          </Form.Text>
-        </Form.Group>
+// Request Booking Form:
+// BookingRequestForm Component
 
-        <Form.Group className="mb-3" controlId="formBasicDate">
-          <Form.Label>Select start date</Form.Label>
-          <Form.Control type="date" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicTime">
-          <Form.Label>Enter start time</Form.Label>
-          <Form.Control type="time" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicDate">
-          <Form.Label>Select end date</Form.Label>
-          <Form.Control type="date" />
-        </Form.Group>
-        <h6>
-          Please select the same date as your start date if it is a single day
-          event.
-        </h6>
-        <Form.Group className="mb-3" controlId="formBasicTime">
-          <Form.Label>Enter end time</Form.Label>
-          <Form.Control type="time" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check
-            type="checkbox"
-            label="I acknowledge that Cricket is a very busy boy and may not be available for my preferred date(s)."
-          />
-        </Form.Group>
-        <Button variant="dark" type="submit" onClick={onClick}>
-          Submit
-        </Button>
-      </Form>
-    </div>
-  );
-};
+// Cricket Image:
+// BookingCricketImage Component
 
-// Submit Button Alert
-const onClick = () => {
-  return alert("Thank you! We will respond within 48 hours.");
-};
-
-// Cricket Image
-const BusinessCricket = () => {
-  return (
-    <div>
-      <img
-        className="bookingCricketImage"
-        src={require("../photos/CricketBooking.jpg")}
-        alt="Businessman Cricket"
-      />
-    </div>
-  );
-};
-
-export default BookingPage;
+export default bookingPage;

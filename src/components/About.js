@@ -1,6 +1,6 @@
 import { Row, Col } from "react-bootstrap";
 
-const AboutCricket = () => {
+const aboutCricket = () => {
   return (
     <div>
       <Row>
@@ -15,8 +15,6 @@ const AboutCricket = () => {
         className="aboutCricketImages"
         src={require("../photos/CricketAbout1.jpg")}
         alt="Baby Cricket"
-        // onMouseEnter={() => showHearts}
-        // onMouseLeave={() => null}
       />
       <Row>
         <Col></Col>
@@ -107,8 +105,4 @@ const AboutCricket = () => {
   );
 };
 
-// const showHearts = (onMouseEnter) => {
-//   console.log("pet this dog");
-// };
-
-export default AboutCricket;
+export default aboutCricket;
