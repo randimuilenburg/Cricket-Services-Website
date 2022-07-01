@@ -3,12 +3,41 @@ import { Form, Button } from "react-bootstrap";
 
 const RequestForm = () => {
   const [isValidEmail, setIsValidEmail] = useState(false);
-  // this.state = {
-  //   isValidEmail: false,
-  //   isValidDate: false,
-  //   isValidTime: false,
-  //   isChecked: false,
-  // };
+  // const [isValidDate, setIsValidDate] = useState(false);
+  // const [isValidTime, isValidTime] = useState(false);
+  // const [isChecked, setIsChecked] = useState(false);
+
+  // Helper Functions:
+
+  // Validating Email Address:
+  const validateField = (e) => {
+    let fieldText = e.target.value;
+    let fieldId = e.target.id;
+    // console.log("testing!");
+    // console.log(fieldText);
+    // console.log(fieldId);
+    switch (fieldId) {
+      case "formBasicEmail":
+        validateEmail(fieldText);
+        break;
+    }
+    return true;
+  };
+
+  // UTIL?
+
+  const validateEmail = (fieldText) => {
+    if (fieldText.includes("@", ".com", ".net")) {
+      setIsValidEmail(false);
+    } else {
+      setIsValidEmail(true);
+    }
+  };
+
+  // Submit Button Alert
+  const onClick = () => {
+    return alert("Thank you! We will respond within 48 hours.");
+  };
 
   return (
     <div className="bookingForm">
@@ -18,8 +47,10 @@ const RequestForm = () => {
           <Form.Control
             type="email"
             placeholder="Enter your email address"
-            // isInvalid={true} <- use a func to determine if is valid
             isInvalid={isValidEmail}
+            onBlur={(e) => {
+              validateField(e);
+            }}
           />
           <Form.Text className="text-muted">
             Your email will never be shared with anyone else. We will only use
@@ -60,18 +91,4 @@ const RequestForm = () => {
     </div>
   );
 };
-
-const validateField = (e) => {
-  console.log("testing!");
-  console.log(e);
-  // somehow figure out what the input text is, then
-  // decide if that input is valid
-  return true;
-};
-
-// Submit Button Alert
-const onClick = () => {
-  return alert("Thank you! We will respond within 48 hours.");
-};
-
 export default RequestForm;
