@@ -87,8 +87,6 @@ a:hover{
 
 .carouselCricket {
   padding-top: 20px;
-  /* width: 700px;
-  height: 700px; */
 }
 
 /* ABOUT page */
@@ -152,4 +150,19 @@ a:hover{
 .bookingForm {
   margin-top: 25px;
   margin-bottom: 25px;
+}
+
+/* DONATION PAGE */
+
+.donateHeader {
+  margin-top: 25px;
+}
+
+.donateSubline {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.donateParagraph {
+  color: black
 }
