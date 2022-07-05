@@ -2,10 +2,14 @@ import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 
 const RequestForm = () => {
-  const [isValidEmail, setIsValidEmail] = useState(false);
-  const [isValidDate, setIsValidDate] = useState(false);
-  const [isValidTime, setIsValidTime] = useState(false);
-  const [isChecked, setIsChecked] = useState(false);
+  const [isInvalidEmail, setIsInvalidEmail] = useState(false);
+  const [isInvalidStartDate, setIsInvalidStartDate] = useState(false);
+  const [isInvalidStartTime, setIsInvalidStartTime] = useState(false);
+  const [isInvalidEndDate, setIsInvalidEndDate] = useState(false);
+  const [isInvalidEndTime, setIsInvalidEndTime] = useState(false);
+  // const [isChecked, setIsChecked] = useState(false);
+
+  // isValid -> isInvalid
 
   // Research UTIL?
 
@@ -20,15 +24,21 @@ const RequestForm = () => {
       case "formBasicEmail":
         validateEmail(fieldValue);
         break;
-      case "formBasicDate":
-        validateDate(fieldValue);
+      case "formBasicStartDate":
+        validateStartDate(fieldValue);
         break;
-      case "formBasicTime":
-        validateTime(fieldValue);
+      case "formBasicStartTime":
+        validateStartTime(fieldValue);
         break;
-      case "formBasicCheckbox":
-        validateCheckbox(fieldValue);
+      case "formBasicEndDate":
+        validateEndDate(fieldValue);
         break;
+      case "formBasicEndTime":
+        validateEndTime(fieldValue);
+        break;
+      // case "formBasicCheckbox":
+      //   validateCheckbox(fieldValue);
+      //   break;
     }
     return true;
   };
@@ -36,41 +46,57 @@ const RequestForm = () => {
   // Validating Email:
   const validateEmail = (fieldValue) => {
     if (fieldValue.includes("@", ".com", ".net")) {
-      setIsValidEmail(false);
+      setIsInvalidEmail(false);
     } else {
-      setIsValidEmail(true);
+      setIsInvalidEmail(true);
     }
   };
 
-  // Validating Selected Dates:
-  const validateDate = (fieldDate) => {
-    console.log(fieldDate.type);
-    if (fieldDate == undefined) {
-      setIsValidDate(false);
+  // Validating Start Date:
+  const validateStartDate = (fieldStartDate) => {
+    if (fieldStartDate == undefined || fieldStartDate.trim() == "") {
+      setIsInvalidStartDate(true);
     } else {
-      setIsValidDate(true);
+      setIsInvalidStartDate(false);
     }
   };
 
-  // Validating Selected Times:
-  const validateTime = (fieldTime) => {
-    // console.log(fieldTime.type);
-    if (fieldTime == undefined) {
-      setIsValidTime(false);
+  // Validating End Date:
+  const validateEndDate = (fieldEndDate) => {
+    if (fieldEndDate == undefined || fieldEndDate.trim() == "") {
+      setIsInvalidEndDate(true);
     } else {
-      setIsValidTime(true);
+      setIsInvalidEndDate(false);
+    }
+  };
+
+  // Validating Start Time:
+  const validateStartTime = (fieldStartTime) => {
+    if (fieldStartTime == undefined) {
+      setIsInvalidStartTime(true);
+    } else {
+      setIsInvalidStartTime(false);
+    }
+  };
+
+  // Validating End Time:
+  const validateEndTime = (fieldEndTime) => {
+    if (fieldEndTime == undefined) {
+      setIsInvalidEndTime(false);
+    } else {
+      setIsInvalidEndTime(true);
     }
   };
 
   // Validating Checkbox:
-  const validateCheckbox = (fieldCheckbox) => {
-    // console.log("help");
-    if (fieldCheckbox == fieldCheckbox.checked) {
-      setIsChecked(true);
-    } else {
-      setIsChecked(false);
-    }
-  };
+  // const validateCheckbox = (fieldCheckbox) => {
+  //   // console.log("help");
+  //   if (fieldCheckbox == fieldCheckbox.checked) {
+  //     setIsChecked(true);
+  //   } else {
+  //     setIsChecked(false);
+  //   }
+  // };
 
   // Validate Form:
   // Button should be conditionally selectable if all "isValid" are valid
@@ -88,7 +114,7 @@ const RequestForm = () => {
           <Form.Control
             type="email"
             placeholder="Enter your email address"
-            isInvalid={isValidEmail}
+            isInvalid={isInvalidEmail}
             onBlur={(e) => {
               validateField(e);
             }}
@@ -99,31 +125,31 @@ const RequestForm = () => {
           </Form.Text>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicDate">
+        <Form.Group className="mb-3" controlId="formBasicStartDate">
           <Form.Label>Select start date</Form.Label>
           <Form.Control
             type="date"
-            isInvalid={isValidDate}
+            isInvalid={isInvalidStartDate}
             onBlur={(e) => {
               validateField(e);
             }}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicTime">
+        <Form.Group className="mb-3" controlId="formBasicStartTime">
           <Form.Label>Enter start time</Form.Label>
           <Form.Control
             type="time"
-            isInvalid={isValidTime}
+            isInvalid={isInvalidStartTime}
             onBlur={(e) => {
               validateField(e);
             }}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicDate">
+        <Form.Group className="mb-3" controlId="formBasicEndDate">
           <Form.Label>Select end date</Form.Label>
           <Form.Control
             type="date"
-            isInvalid={isValidDate}
+            isInvalid={isInvalidEndDate}
             onBlur={(e) => {
               validateField(e);
             }}
@@ -133,11 +159,12 @@ const RequestForm = () => {
           Please select the same date as your start date if it is a single day
           event.
         </h6>
-        <Form.Group className="mb-3" controlId="formBasicTime">
+        <Form.Group className="mb-3" controlId="formBasicStartTime">
           <Form.Label>Enter end time</Form.Label>
           <Form.Control
             type="time"
-            isInvalid={isValidTime}
+            // THIS WORKED >>>>
+            isInvalid={isInvalidEndTime}
             onBlur={(e) => {
               validateField(e);
             }}
@@ -148,12 +175,18 @@ const RequestForm = () => {
             type="checkbox"
             label="I acknowledge that Cricket is a very busy boy and may not be available for my preferred date(s)."
             // isInvalid={isChecked}
-            onClick={(e) => {
-              validateCheckbox(e);
-            }}
+            // onClick={(e) => {
+            //   validateCheckbox(e);
+            // }}
           />
         </Form.Group>
-        <Button variant="dark" type="submit" onClick={onClick}>
+        <Button
+          // disabled={true}
+          disabled={RequestForm !== true ? true : ""}
+          variant="dark"
+          type="submit"
+          onClick={onClick}
+        >
           Submit
         </Button>
       </Form>
