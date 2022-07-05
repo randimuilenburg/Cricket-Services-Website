@@ -7,11 +7,8 @@ const RequestForm = () => {
   const [isInvalidStartTime, setIsInvalidStartTime] = useState(false);
   const [isInvalidEndDate, setIsInvalidEndDate] = useState(false);
   const [isInvalidEndTime, setIsInvalidEndTime] = useState(false);
-  // const [isChecked, setIsChecked] = useState(false);
-
-  // isValid -> isInvalid
-
-  // Research UTIL?
+  const [isChecked, setIsChecked] = useState(false);
+  const [isAllValid, setIsAllValid] = useState(false);
 
   // Helper Functions:
 
@@ -36,16 +33,17 @@ const RequestForm = () => {
       case "formBasicEndTime":
         validateEndTime(fieldValue);
         break;
-      // case "formBasicCheckbox":
-      //   validateCheckbox(fieldValue);
-      //   break;
+      case "formBasicCheckbox":
+        validateCheckbox(e.target.checked);
+        break;
     }
+    validateAllFields();
     return true;
   };
 
   // Validating Email:
   const validateEmail = (fieldValue) => {
-    if (fieldValue.includes("@", ".com", ".net")) {
+    if (fieldValue.includes("@" && ".com", ".net")) {
       setIsInvalidEmail(false);
     } else {
       setIsInvalidEmail(true);
@@ -73,9 +71,9 @@ const RequestForm = () => {
   // Validating Start Time:
   const validateStartTime = (fieldStartTime) => {
     if (fieldStartTime == undefined) {
-      setIsInvalidStartTime(true);
-    } else {
       setIsInvalidStartTime(false);
+    } else {
+      setIsInvalidStartTime(true);
     }
   };
 
@@ -89,17 +87,33 @@ const RequestForm = () => {
   };
 
   // Validating Checkbox:
-  // const validateCheckbox = (fieldCheckbox) => {
-  //   // console.log("help");
-  //   if (fieldCheckbox == fieldCheckbox.checked) {
-  //     setIsChecked(true);
-  //   } else {
-  //     setIsChecked(false);
-  //   }
-  // };
+  const validateCheckbox = (isChecked) => {
+    console.log("help");
+    console.log(isChecked);
+    if (isChecked) {
+      setIsChecked(true);
+    } else {
+      setIsChecked(false);
+    }
+  };
 
   // Validate Form:
-  // Button should be conditionally selectable if all "isValid" are valid
+  const validateAllFields = () => {
+    console.log("scream");
+    if (
+      isInvalidEmail == false &&
+      isInvalidStartDate == false &&
+      isInvalidStartTime == false &&
+      isInvalidEndDate == false &&
+      isInvalidEndTime == false &&
+      isChecked == true
+    ) {
+      setIsAllValid(true);
+    } else {
+      setIsAllValid(false);
+    }
+    console.log(isAllValid);
+  };
 
   // Submit Button Alert
   const onClick = () => {
@@ -163,7 +177,6 @@ const RequestForm = () => {
           <Form.Label>Enter end time</Form.Label>
           <Form.Control
             type="time"
-            // THIS WORKED >>>>
             isInvalid={isInvalidEndTime}
             onBlur={(e) => {
               validateField(e);
@@ -174,15 +187,14 @@ const RequestForm = () => {
           <Form.Check
             type="checkbox"
             label="I acknowledge that Cricket is a very busy boy and may not be available for my preferred date(s)."
-            // isInvalid={isChecked}
-            // onClick={(e) => {
-            //   validateCheckbox(e);
-            // }}
+            onClick={(e) => {
+              validateField(e);
+            }}
           />
         </Form.Group>
         <Button
-          // disabled={true}
-          disabled={RequestForm !== true ? true : ""}
+          disabled={!isAllValid}
+          controlId="submitButton"
           variant="dark"
           type="submit"
           onClick={onClick}
