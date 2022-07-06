@@ -80,12 +80,24 @@ a:hover{
 
 .meetCricket {
   color: darkblue;
-  padding-bottom: 40px;
+  padding-bottom: 10px;
   padding-top: 40px;
   font-size: 75px;
 }
 
+.meetCricketSub {
+  color: darkblue;
+  padding-bottom: 20px;
+}
+
+.carousel {
+  width: 650px;
+  height: 900px;
+}
+
 .carouselCricket {
+  width: 650px;
+  height: 900px;
   padding-top: 20px;
 }
 
@@ -103,7 +115,7 @@ a:hover{
  display: block;
  margin-left: auto;
  margin-right: auto;
- cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='50' height='60' viewport='0 0 100 100' style='fill:black;font-size:30px;'><text y='50%'>❤️</text></svg>") 16 0,auto; /*!emojicursor.app*/
+ cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='50' height='60' viewport='0 0 100 100' style='fill:black;font-size:30px;'><text y='50%'>❤️</text></svg>") 16 0,auto; 
 }
 
 /* BOOKING page */
@@ -165,4 +177,12 @@ a:hover{
 
 .donateParagraph {
   color: black
+}
+
+.donationIcons {
+  height: 30px;
+  width: 30px;
+  margin-top: 25px;
+  margin-right: 65px;
+  margin-bottom: 20px;
 }

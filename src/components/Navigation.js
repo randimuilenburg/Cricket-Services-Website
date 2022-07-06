@@ -15,7 +15,7 @@ const Navigation = () => {
           <Nav.Link href="/about">About</Nav.Link>
           <Nav.Link href="/booking">Booking</Nav.Link>
           <Nav.Link href="/donation">Donate a Treat</Nav.Link>
-          <Nav.Link href="/account">Account</Nav.Link>{" "}
+          {/* <Nav.Link href="/account">Account</Nav.Link>{" "} */}
         </Nav>{" "}
       </Container>{" "}
     </Navbar>

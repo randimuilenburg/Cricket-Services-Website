@@ -27,10 +27,27 @@ const Donation = () => {
         </Col>
         <Col></Col>
       </Row>
+      <Row>
+        <Col></Col>
+        <Col></Col>
+        <Col xs lg="4">
+          {donationImages()}
+        </Col>
+        <Col></Col>
+      </Row>
+      <Row>
+        <Col></Col>
+        <Col></Col>
+        <Col xs lg="4">
+          {donationUsername()}
+        </Col>
+        <Col></Col>
+      </Row>
     </div>
   );
 };
 
+// Header:
 const bookingHeader = () => {
   return (
     <div>
@@ -41,6 +58,7 @@ const bookingHeader = () => {
   );
 };
 
+// Subtext:
 const bookingSubline = () => {
   return (
     <div>
@@ -49,6 +67,7 @@ const bookingSubline = () => {
   );
 };
 
+// Paragraph:
 const bookingParagraph = () => {
   return (
     <div>
@@ -72,6 +91,33 @@ const bookingParagraph = () => {
         well-done.
       </p>
       <p className="donateParagraph">Cricket thanks you!</p>
+    </div>
+  );
+};
+
+// Donation Icons:
+const donationImages = () => {
+  return (
+    <div>
+      <img
+        className="donationIcons"
+        src={require("../photos/venmo.png")}
+        alt="Venmo icon"
+      />
+      <img
+        className="donationIcons"
+        src={require("../photos/paypal.png")}
+        alt="Paypal icon"
+      />
+    </div>
+  );
+};
+
+// Donation Username:
+const donationUsername = () => {
+  return (
+    <div>
+      <h6>@DingoDogMom</h6>
     </div>
   );
 };

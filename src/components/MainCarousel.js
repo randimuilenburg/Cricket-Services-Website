@@ -2,41 +2,34 @@ import { Carousel } from "react-bootstrap";
 
 const cricketSlides = () => {
   return (
-    <div class="carousel">
+    <div className="carousel">
       <Carousel fade>
         <Carousel.Item interval={3000}>
           <img
             className="carouselCricket"
-            src={require("../photos/cricketresized1.jpg")}
-            alt="Cricket on the balcony"
+            src={require("../photos/CricketMain1.jpg")}
+            alt="Dinosaur Cricket"
           />
         </Carousel.Item>
         <Carousel.Item interval={3000}>
           <img
             className="carouselCricket"
-            src={require("../photos/cricketresized2.jpg")}
-            alt="Cricket with his toy"
+            src={require("../photos/CricketMain2.jpg")}
+            alt="Ready for Winter Cricket"
           />
         </Carousel.Item>
         <Carousel.Item interval={3000}>
           <img
             className="carouselCricket"
-            src={require("../photos/cricketresized3.jpg")}
-            alt="Smiling Cricket"
+            src={require("../photos/CricketMain3.jpg")}
+            alt="Athlete Cricket"
           />
         </Carousel.Item>
         <Carousel.Item interval={3000}>
           <img
             className="carouselCricket"
-            src={require("../photos/cricketresized4.jpg")}
-            alt="Cricket in the sun"
-          />
-        </Carousel.Item>{" "}
-        <Carousel.Item interval={3000}>
-          <img
-            className="carouselCricket"
-            src={require("../photos/cricketresized5.jpg")}
-            alt="Sleeping Cricket"
+            src={require("../photos/CricketMain4.jpg")}
+            alt="Dragon Cricket"
           />
         </Carousel.Item>{" "}
       </Carousel>
