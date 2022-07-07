@@ -15,7 +15,7 @@ const RequestForm = () => {
   // Validating Input Fields:
   const validateField = (e) => {
     let fieldValue = e.target.value;
-    console.log(fieldValue);
+    console.log(e.target);
     let fieldId = e.target.id;
     switch (fieldId) {
       case "formBasicEmail":
@@ -70,25 +70,32 @@ const RequestForm = () => {
 
   // Validating Start Time:
   const validateStartTime = (fieldStartTime) => {
-    if (fieldStartTime == undefined) {
-      setIsInvalidStartTime(false);
-    } else {
+    console.log("fieldStartTime is " + fieldStartTime + typeof fieldStartTime);
+    console.log(isInvalidStartTime);
+    if (fieldStartTime == "") {
+      // console.log(1);
       setIsInvalidStartTime(true);
+    } else {
+      // console.log(2);
+      setIsInvalidStartTime(false);
     }
+    // console.log(isInvalidStartTime);
   };
 
   // Validating End Time:
   const validateEndTime = (fieldEndTime) => {
-    if (fieldEndTime == undefined) {
-      setIsInvalidEndTime(false);
-    } else {
+    console.log(fieldEndTime);
+    // reads fieldEndTime, does not read isInvalidEndTime
+    console.log("this is" + isInvalidEndTime);
+    if (fieldEndTime == "") {
       setIsInvalidEndTime(true);
+    } else {
+      setIsInvalidEndTime(false);
     }
   };
 
   // Validating Checkbox:
   const validateCheckbox = (isChecked) => {
-    console.log("help");
     console.log(isChecked);
     if (isChecked) {
       setIsChecked(true);
@@ -99,7 +106,6 @@ const RequestForm = () => {
 
   // Validate Form:
   const validateAllFields = () => {
-    console.log("scream");
     if (
       isInvalidEmail == false &&
       isInvalidStartDate == false &&
@@ -112,7 +118,7 @@ const RequestForm = () => {
     } else {
       setIsAllValid(false);
     }
-    console.log(isAllValid);
+    // console.log(isAllValid);
   };
 
   // Submit Button Alert
@@ -173,7 +179,7 @@ const RequestForm = () => {
           Please select the same date as your start date if it is a single day
           event.
         </h6>
-        <Form.Group className="mb-3" controlId="formBasicStartTime">
+        <Form.Group className="mb-3" controlId="formBasicEndTime">
           <Form.Label>Enter end time</Form.Label>
           <Form.Control
             type="time"
