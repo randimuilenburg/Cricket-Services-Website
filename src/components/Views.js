@@ -3,7 +3,7 @@ import Main from "./Main";
 import About from "./About";
 import Booking from "./Booking";
 import Donation from "./Donate";
-// import Account from "./Account";
+import Account from "./Account";
 
 const Views = () => {
   return (
@@ -14,7 +14,7 @@ const Views = () => {
         <Route path="/about" element={<About />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/donation" element={<Donation />} />
-        {/* <Route path="/account" element={<Account />} /> */}
+        <Route path="/account" element={<Account />} />
       </Routes>
     </BrowserRouter>
   );

@@ -186,3 +186,10 @@ a:hover{
   margin-right: 65px;
   margin-bottom: 20px;
 }
+
+/* ACCOUNT page */
+
+.accountHeader {
+  padding-top: 100px;
+  padding-bottom: 10px;
+}

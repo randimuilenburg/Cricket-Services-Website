@@ -2,7 +2,7 @@ import { Row, Col } from "react-bootstrap";
 
 const Donation = () => {
   return (
-    <div>
+    <div className="container">
       <Row>
         <Col></Col>
         <Col></Col>

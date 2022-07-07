@@ -15,7 +15,6 @@ const RequestForm = () => {
   // Validating Input Fields:
   const validateField = (e) => {
     let fieldValue = e.target.value;
-    console.log(e.target);
     let fieldId = e.target.id;
     switch (fieldId) {
       case "formBasicEmail":
@@ -70,23 +69,16 @@ const RequestForm = () => {
 
   // Validating Start Time:
   const validateStartTime = (fieldStartTime) => {
-    console.log("fieldStartTime is " + fieldStartTime + typeof fieldStartTime);
-    console.log(isInvalidStartTime);
     if (fieldStartTime == "") {
-      // console.log(1);
       setIsInvalidStartTime(true);
     } else {
-      // console.log(2);
       setIsInvalidStartTime(false);
     }
-    // console.log(isInvalidStartTime);
   };
 
   // Validating End Time:
   const validateEndTime = (fieldEndTime) => {
-    console.log(fieldEndTime);
     // reads fieldEndTime, does not read isInvalidEndTime
-    console.log("this is" + isInvalidEndTime);
     if (fieldEndTime == "") {
       setIsInvalidEndTime(true);
     } else {
@@ -96,7 +88,6 @@ const RequestForm = () => {
 
   // Validating Checkbox:
   const validateCheckbox = (isChecked) => {
-    console.log(isChecked);
     if (isChecked) {
       setIsChecked(true);
     } else {
@@ -104,22 +95,63 @@ const RequestForm = () => {
     }
   };
 
+  // if (1 == 1 || 2 == 1 || 2 == 1) {
+  //   if (2 == 2) {
+  //     return true
+  //   } else {
+  //     return false
+  //   }
+  //   return false
+  // } else {
+  //   return false
+  // }
+
   // Validate Form:
   const validateAllFields = () => {
     if (
-      isInvalidEmail == false &&
-      isInvalidStartDate == false &&
-      isInvalidStartTime == false &&
-      isInvalidEndDate == false &&
-      isInvalidEndTime == false &&
-      isChecked == true
+      isInvalidEmail == true ||
+      isInvalidStartDate == true ||
+      isInvalidStartTime == true ||
+      isInvalidEndDate == true ||
+      isInvalidEndTime == true
     ) {
-      setIsAllValid(true);
+      if (isChecked == true) {
+        // true V
+        return false;
+      } else {
+        return true;
+      }
+      return false;
     } else {
-      setIsAllValid(false);
+      // false V
+      return true;
     }
-    // console.log(isAllValid);
   };
+
+  // const validateAllFields = () => {
+  //   if (
+  //     isInvalidEmail == false ||
+  //     isInvalidStartDate == false &&
+  //     isInvalidStartTime == false &&
+  //     isInvalidEndDate == false &&
+  //     isInvalidEndTime == false &&
+  //     isChecked == true
+  //     // (if any of the invalids are false, is checked is true )
+  //   ) {
+  //     console.log("SETTING IS ALL VALID TO TRUE");
+  //     console.log("isInvalidEmail " + isInvalidEmail);
+  //     console.log("isInvalidStartDate " + isInvalidStartDate);
+  //     console.log("isInvalidStartTime " + isInvalidStartTime);
+  //     console.log("isInvalidEndDate " + isInvalidEndDate);
+  //     console.log("isInvalidEndTime " + isInvalidEndTime);
+  //     console.log("isChecked " + isChecked);
+  //     setIsAllValid(true);
+  //   } else {
+  //     console.log("SETTING IS ALL VALID TO FALSE");
+  //     setIsAllValid(false);
+  //   }
+  //   console.log("isAllValid " + isAllValid);
+  // };
 
   // Submit Button Alert
   const onClick = () => {
@@ -199,7 +231,7 @@ const RequestForm = () => {
           />
         </Form.Group>
         <Button
-          disabled={!isAllValid}
+          disabled={isAllValid === false}
           controlId="submitButton"
           variant="dark"
           type="submit"

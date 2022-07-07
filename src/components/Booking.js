@@ -38,7 +38,6 @@ const bookingPage = () => {
         <Col></Col>
         <Col></Col>
         <Col xs lg="6">
-          <div id="animate" />
           {BookingCalendar()}
         </Col>
         <Col></Col>
