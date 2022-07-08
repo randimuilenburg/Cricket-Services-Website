@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 
-// 0 = fresh, 1 = invalid, 2 = valid
+// 0 = fresh page, 1 = invalid, 2 = valid
 
 const RequestForm = () => {
   const [emailValidity, setEmailValidity] = useState(0);
