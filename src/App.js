@@ -1,7 +1,6 @@
 import "./App.css";
 import Navigation from "./components/Navigation";
 import Views from "./components/Views";
-// import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import React from "react";
 
 function App() {
