@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 
+// 0 = fresh, 1 = invalid, 2 = valid
+
 const RequestForm = () => {
-  const [isInvalidEmail, setIsInvalidEmail] = useState(false);
-  const [isInvalidStartDate, setIsInvalidStartDate] = useState(false);
-  const [isInvalidStartTime, setIsInvalidStartTime] = useState(false);
-  const [isInvalidEndDate, setIsInvalidEndDate] = useState(false);
-  const [isInvalidEndTime, setIsInvalidEndTime] = useState(false);
-  const [isChecked, setIsChecked] = useState(false);
-  const [isAllValid, setIsAllValid] = useState(false);
+  const [isInvalidEmail, setIsInvalidEmail] = useState(0);
+  const [isInvalidStartDate, setIsInvalidStartDate] = useState(0);
+  const [isInvalidStartTime, setIsInvalidStartTime] = useState(0);
+  const [isInvalidEndDate, setIsInvalidEndDate] = useState(0);
+  const [isInvalidEndTime, setIsInvalidEndTime] = useState(0);
+  const [isAllValid, setIsAllValid] = useState(0);
 
   // Helper Functions:
 
@@ -32,126 +33,72 @@ const RequestForm = () => {
       case "formBasicEndTime":
         validateEndTime(fieldValue);
         break;
-      case "formBasicCheckbox":
-        validateCheckbox(e.target.checked);
-        break;
     }
-    validateAllFields();
-    return true;
   };
 
   // Validating Email:
   const validateEmail = (fieldValue) => {
     if (fieldValue.includes("@" && ".com", ".net")) {
-      setIsInvalidEmail(false);
+      setIsInvalidEmail(2);
     } else {
-      setIsInvalidEmail(true);
+      setIsInvalidEmail(1);
     }
   };
 
   // Validating Start Date:
   const validateStartDate = (fieldStartDate) => {
     if (fieldStartDate == undefined || fieldStartDate.trim() == "") {
-      setIsInvalidStartDate(true);
+      setIsInvalidStartDate(1);
     } else {
-      setIsInvalidStartDate(false);
+      setIsInvalidStartDate(2);
     }
   };
 
   // Validating End Date:
   const validateEndDate = (fieldEndDate) => {
     if (fieldEndDate == undefined || fieldEndDate.trim() == "") {
-      setIsInvalidEndDate(true);
+      setIsInvalidEndDate(1);
     } else {
-      setIsInvalidEndDate(false);
+      setIsInvalidEndDate(2);
     }
   };
 
   // Validating Start Time:
   const validateStartTime = (fieldStartTime) => {
     if (fieldStartTime == "") {
-      setIsInvalidStartTime(true);
+      setIsInvalidStartTime(1);
     } else {
-      setIsInvalidStartTime(false);
+      setIsInvalidStartTime(2);
     }
   };
 
   // Validating End Time:
   const validateEndTime = (fieldEndTime) => {
-    // reads fieldEndTime, does not read isInvalidEndTime
     if (fieldEndTime == "") {
-      setIsInvalidEndTime(true);
+      setIsInvalidEndTime(1);
     } else {
-      setIsInvalidEndTime(false);
+      setIsInvalidEndTime(2);
     }
   };
 
-  // Validating Checkbox:
-  const validateCheckbox = (isChecked) => {
-    if (isChecked) {
-      setIsChecked(true);
-    } else {
-      setIsChecked(false);
-    }
-  };
-
-  // if (1 == 1 || 2 == 1 || 2 == 1) {
-  //   if (2 == 2) {
-  //     return true
-  //   } else {
-  //     return false
-  //   }
-  //   return false
-  // } else {
-  //   return false
-  // }
-
-  // Validate Form:
-  const validateAllFields = () => {
+  const validateAllFields = (checkboxIsChecked) => {
+    console.log(checkboxIsChecked);
     if (
-      isInvalidEmail == true ||
-      isInvalidStartDate == true ||
-      isInvalidStartTime == true ||
-      isInvalidEndDate == true ||
-      isInvalidEndTime == true
+      isInvalidEmail === 2 &&
+      isInvalidStartDate === 2 &&
+      isInvalidStartTime === 2 &&
+      isInvalidEndDate === 2 &&
+      isInvalidEndTime === 2
     ) {
-      if (isChecked == true) {
-        // true V
-        return false;
+      if (checkboxIsChecked) {
+        setIsAllValid(2);
       } else {
-        return true;
+        setIsAllValid(1);
       }
-      return false;
     } else {
-      // false V
-      return true;
+      setIsAllValid(1);
     }
   };
-
-  // const validateAllFields = () => {
-  //   if (
-  //     isInvalidEmail == false ||
-  //     isInvalidStartDate == false &&
-  //     isInvalidStartTime == false &&
-  //     isInvalidEndDate == false &&
-  //     isInvalidEndTime == false &&
-  //     isChecked == true
-  //     // (if any of the invalids are false, is checked is true )
-  //   ) {
-  //     console.log("SETTING IS ALL VALID TO TRUE");
-  //     console.log("isInvalidEmail " + isInvalidEmail);
-  //     console.log("isInvalidStartDate " + isInvalidStartDate);
-  //     console.log("isInvalidStartTime " + isInvalidStartTime);
-  //     console.log("isInvalidEndDate " + isInvalidEndDate);
-  //     console.log("isInvalidEndTime " + isInvalidEndTime);
-  //     console.log("isChecked " + isChecked);
-  //     setIsAllValid(true);
-  //   } else {
-  //     console.log("SETTING IS ALL VALID TO FALSE");
-  //     setIsAllValid(false);
-  //   }
-  //   console.log("isAllValid " + isAllValid);
-  // };
 
   // Submit Button Alert
   const onClick = () => {
@@ -166,7 +113,7 @@ const RequestForm = () => {
           <Form.Control
             type="email"
             placeholder="Enter your email address"
-            isInvalid={isInvalidEmail}
+            isInvalid={isInvalidEmail == 1}
             onBlur={(e) => {
               validateField(e);
             }}
@@ -181,7 +128,7 @@ const RequestForm = () => {
           <Form.Label>Select start date</Form.Label>
           <Form.Control
             type="date"
-            isInvalid={isInvalidStartDate}
+            isInvalid={isInvalidStartDate == 1}
             onBlur={(e) => {
               validateField(e);
             }}
@@ -191,7 +138,7 @@ const RequestForm = () => {
           <Form.Label>Enter start time</Form.Label>
           <Form.Control
             type="time"
-            isInvalid={isInvalidStartTime}
+            isInvalid={isInvalidStartTime == 1}
             onBlur={(e) => {
               validateField(e);
             }}
@@ -201,7 +148,7 @@ const RequestForm = () => {
           <Form.Label>Select end date</Form.Label>
           <Form.Control
             type="date"
-            isInvalid={isInvalidEndDate}
+            isInvalid={isInvalidEndDate == 1}
             onBlur={(e) => {
               validateField(e);
             }}
@@ -215,7 +162,7 @@ const RequestForm = () => {
           <Form.Label>Enter end time</Form.Label>
           <Form.Control
             type="time"
-            isInvalid={isInvalidEndTime}
+            isInvalid={isInvalidEndTime == 1}
             onBlur={(e) => {
               validateField(e);
             }}
@@ -226,12 +173,12 @@ const RequestForm = () => {
             type="checkbox"
             label="I acknowledge that Cricket is a very busy boy and may not be available for my preferred date(s)."
             onClick={(e) => {
-              validateField(e);
+              validateAllFields(e.target.checked);
             }}
           />
         </Form.Group>
         <Button
-          disabled={isAllValid === false}
+          disabled={isAllValid !== 2}
           controlId="submitButton"
           variant="dark"
           type="submit"
