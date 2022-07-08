@@ -82,7 +82,7 @@ const bookingHeader = () => {
 // Booking Paragraph
 const bookingParagraph = () => {
   return (
-    <p className="bookingPara">
+    <p className="bookingParagraphs">
       He's the perfect addition for your next birthday party, graduation, or
       wedding. He's cute, very soft, and full of personality. He'll be happy to
       play with the kids, pose for pictures, and be a striking conversation

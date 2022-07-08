@@ -82,7 +82,7 @@ const RequestForm = () => {
   };
 
   const validateAllFields = (checkboxIsChecked) => {
-    console.log(checkboxIsChecked);
+    // console.log(checkboxIsChecked);
     if (
       emailValidity === 2 &&
       startDateValidity === 2 &&
@@ -108,7 +108,7 @@ const RequestForm = () => {
   return (
     <div className="bookingForm">
       <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlid="formBasicEmail">
           <Form.Label>Your email address</Form.Label>
           <Form.Control
             type="email"
@@ -124,7 +124,7 @@ const RequestForm = () => {
           </Form.Text>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicStartDate">
+        <Form.Group className="mb-3" controlid="formBasicStartDate">
           <Form.Label>Select start date</Form.Label>
           <Form.Control
             type="date"
@@ -134,7 +134,7 @@ const RequestForm = () => {
             }}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicStartTime">
+        <Form.Group className="mb-3" controlid="formBasicStartTime">
           <Form.Label>Enter start time</Form.Label>
           <Form.Control
             type="time"
@@ -144,7 +144,7 @@ const RequestForm = () => {
             }}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEndDate">
+        <Form.Group className="mb-3" controlid="formBasicEndDate">
           <Form.Label>Select end date</Form.Label>
           <Form.Control
             type="date"
@@ -158,7 +158,7 @@ const RequestForm = () => {
           Please select the same date as your start date if it is a single day
           event.
         </h6>
-        <Form.Group className="mb-3" controlId="formBasicEndTime">
+        <Form.Group className="mb-3" controlid="formBasicEndTime">
           <Form.Label>Enter end time</Form.Label>
           <Form.Control
             type="time"
@@ -188,7 +188,7 @@ const RequestForm = () => {
         </Form.Group>
         <Button
           disabled={allFieldValidity !== 2}
-          controlId="submitButton"
+          controlid="submitButton"
           variant="dark"
           type="submit"
           onClick={onClick}
