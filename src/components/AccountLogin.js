@@ -36,13 +36,13 @@ const loginForm = () => {
         </div>
       </div>
 
-      <button type="button" class="btn btn-primary btn-block mb-4">
+      <button type="button" class="btn btn-dark btn-block mb-4">
         Sign in
       </button>
 
       <div class="text-center">
         <p>
-          Not a member? <a href="#!">Register</a>
+          New here? <a href="#!">Register!</a>
         </p>
       </div>
     </form>
