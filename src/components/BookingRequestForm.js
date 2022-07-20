@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 
-// 0 = fresh page, 1 = invalid, 2 = valid
+// 0 = fresh page, 1 = invalid field, 2 = valid field
 
 const RequestForm = () => {
   const [emailValidity, setEmailValidity] = useState(0);
@@ -82,7 +82,6 @@ const RequestForm = () => {
   };
 
   const validateAllFields = (checkboxIsChecked) => {
-    // console.log(checkboxIsChecked);
     if (
       emailValidity === 2 &&
       startDateValidity === 2 &&
@@ -111,6 +110,7 @@ const RequestForm = () => {
         <Form.Group className="mb-3" controlid="formBasicEmail">
           <Form.Label>Your email address</Form.Label>
           <Form.Control
+            id="formBasicEmail"
             type="email"
             placeholder="Enter your email address"
             isInvalid={emailValidity == 1}
@@ -127,6 +127,7 @@ const RequestForm = () => {
         <Form.Group className="mb-3" controlid="formBasicStartDate">
           <Form.Label>Select start date</Form.Label>
           <Form.Control
+            id="formBasicStartDate"
             type="date"
             isInvalid={startDateValidity == 1}
             onBlur={(e) => {
@@ -137,6 +138,7 @@ const RequestForm = () => {
         <Form.Group className="mb-3" controlid="formBasicStartTime">
           <Form.Label>Enter start time</Form.Label>
           <Form.Control
+            id="formBasicStartTime"
             type="time"
             isInvalid={startTimeValidity == 1}
             onBlur={(e) => {
@@ -147,6 +149,7 @@ const RequestForm = () => {
         <Form.Group className="mb-3" controlid="formBasicEndDate">
           <Form.Label>Select end date</Form.Label>
           <Form.Control
+            id="formBasicEndDate"
             type="date"
             isInvalid={endDateValidity == 1}
             onBlur={(e) => {
@@ -161,6 +164,7 @@ const RequestForm = () => {
         <Form.Group className="mb-3" controlid="formBasicEndTime">
           <Form.Label>Enter end time</Form.Label>
           <Form.Control
+            id="formBasicEndTime"
             type="time"
             isInvalid={endTimeValidity == 1}
             onBlur={(e) => {
@@ -170,6 +174,7 @@ const RequestForm = () => {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check
+            id="formBasicCheckbox"
             type="checkbox"
             disabled={
               !(
