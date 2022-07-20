@@ -192,7 +192,15 @@ const RequestForm = () => {
           />
         </Form.Group>
         <Button
-          disabled={allFieldValidity !== 2}
+          // disabled={allFieldValidity !== 2}
+          disabled={
+            allFieldValidity !== 2 ||
+            emailValidity === 1 ||
+            startDateValidity === 1 ||
+            startTimeValidity === 1 ||
+            endDateValidity === 1 ||
+            endTimeValidity === 1
+          }
           controlid="submitButton"
           variant="dark"
           type="submit"
