@@ -12,7 +12,7 @@ const bookingPage = () => {
       <Row>
         <Col></Col>
         <Col></Col>
-        <Col xs lg="5">
+        <Col xs lg="6">
           {bookingHeader()}
         </Col>
         <Col></Col>
