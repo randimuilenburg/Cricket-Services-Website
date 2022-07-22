@@ -1,5 +1,5 @@
-import { Button, Row, Col, Form } from "react-bootstrap";
-import React, { useState } from "react";
+import { Row, Col } from "react-bootstrap";
+import React from "react";
 import BookingCricketImage from "./BookingCricketImage";
 import BookingCalendar from "./BookingCalendar";
 import BookingRequestForm from "./BookingRequestForm";
@@ -12,7 +12,7 @@ const bookingPage = () => {
       <Row>
         <Col></Col>
         <Col></Col>
-        <Col xs lg="9">
+        <Col xs lg="8">
           {bookingHeader()}
         </Col>
         <Col></Col>

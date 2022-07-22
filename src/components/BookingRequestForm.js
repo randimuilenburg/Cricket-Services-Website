@@ -47,7 +47,7 @@ const RequestForm = () => {
 
   // Validating Start Date:
   const validateStartDate = (fieldStartDate) => {
-    if (fieldStartDate == undefined || fieldStartDate.trim() == "") {
+    if (fieldStartDate === undefined || fieldStartDate.trim() === "") {
       setStartDateValidity(1);
     } else {
       setStartDateValidity(2);
@@ -56,7 +56,7 @@ const RequestForm = () => {
 
   // Validating End Date:
   const validateEndDate = (fieldEndDate) => {
-    if (fieldEndDate == undefined || fieldEndDate.trim() == "") {
+    if (fieldEndDate === undefined || fieldEndDate.trim() === "") {
       setEndDateValidity(1);
     } else {
       setEndDateValidity(2);
@@ -65,7 +65,7 @@ const RequestForm = () => {
 
   // Validating Start Time:
   const validateStartTime = (fieldStartTime) => {
-    if (fieldStartTime == "") {
+    if (fieldStartTime === "") {
       setStartTimeValidity(1);
     } else {
       setStartTimeValidity(2);
@@ -74,7 +74,7 @@ const RequestForm = () => {
 
   // Validating End Time:
   const validateEndTime = (fieldEndTime) => {
-    if (fieldEndTime == "") {
+    if (fieldEndTime === "") {
       setEndTimeValidity(1);
     } else {
       setEndTimeValidity(2);
@@ -113,7 +113,7 @@ const RequestForm = () => {
             id="formBasicEmail"
             type="email"
             placeholder="Enter your email address"
-            isInvalid={emailValidity == 1}
+            isInvalid={emailValidity === 1}
             onBlur={(e) => {
               validateField(e);
             }}
@@ -129,7 +129,7 @@ const RequestForm = () => {
           <Form.Control
             id="formBasicStartDate"
             type="date"
-            isInvalid={startDateValidity == 1}
+            isInvalid={startDateValidity === 1}
             onBlur={(e) => {
               validateField(e);
             }}
@@ -140,7 +140,7 @@ const RequestForm = () => {
           <Form.Control
             id="formBasicStartTime"
             type="time"
-            isInvalid={startTimeValidity == 1}
+            isInvalid={startTimeValidity === 1}
             onBlur={(e) => {
               validateField(e);
             }}
@@ -151,7 +151,7 @@ const RequestForm = () => {
           <Form.Control
             id="formBasicEndDate"
             type="date"
-            isInvalid={endDateValidity == 1}
+            isInvalid={endDateValidity === 1}
             onBlur={(e) => {
               validateField(e);
             }}
@@ -166,7 +166,7 @@ const RequestForm = () => {
           <Form.Control
             id="formBasicEndTime"
             type="time"
-            isInvalid={endTimeValidity == 1}
+            isInvalid={endTimeValidity === 1}
             onBlur={(e) => {
               validateField(e);
             }}
